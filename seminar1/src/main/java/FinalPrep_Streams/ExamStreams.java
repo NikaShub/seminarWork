@@ -134,7 +134,7 @@ public class ExamStreams {
     }
 
     public static int countTotalWeight(Node root) {
-        return root.weight() + root.getChildren().map(n -> n.weight()).reduce(0, (a, b) -> a + b);
+        return root.weight() + root.getChildren().map(n -> countTotalWeight(n)).reduce(0, (a, b) -> a + b);
 
     }
 
